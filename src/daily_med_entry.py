@@ -1,6 +1,3 @@
-import os
-import xmltodict
-
 from collections import OrderedDict
 from dataclasses import dataclass
 from typing import Any
