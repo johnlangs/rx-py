@@ -1,7 +1,7 @@
 import xmltodict
 import daily_med_entry
 
-def parse_folder():
+def parse_folder(path: str) -> daily_med_entry.dailyMedEntry:
     """
     Loads a Med Daily entry folder into a DailyMedEntry object
     """
