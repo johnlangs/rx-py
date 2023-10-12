@@ -5,7 +5,7 @@ from collections import OrderedDict
 from dataclasses import dataclass
 
 @dataclass
-class daily_med_entry:
+class dailyMedEntry:
     """
     Used to store information about one Daily Med Entry.
     Created after parsing an entry.
