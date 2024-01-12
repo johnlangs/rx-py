@@ -19,9 +19,9 @@ def index_handler():
 
 @app.route("/search", methods=['POST'])
 def search():
-    data = request.json()
+    data = request.json['query']
 
-    test_prompt = embedder.encode(data.query).astype(np.float32)
+    test_prompt = embedder.encode(data).astype(np.float32)
     distances, indices = knn.kneighbors([test_prompt])
 
     nnbrs = []
