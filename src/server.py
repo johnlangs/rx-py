@@ -1,4 +1,5 @@
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
+from flask_cors import CORS
 import pickle
 import numpy as np
 import pandas as pd
@@ -12,10 +13,15 @@ with open('knn_model.pkl', 'rb') as file:
 embedder = SentenceTransformer('msmarco-distilbert-base-v4')
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/", methods=['GET'])
 def index_handler():
-    return "<p>Hello, World!</p>"
+    return send_from_directory('./frontend/dist', 'index.html')
+
+@app.route('/assets/<path:filename>')
+def serve_assets(filename):
+    return send_from_directory('./frontend/dist/assets', filename)
 
 @app.route("/search", methods=['POST'])
 def search():
